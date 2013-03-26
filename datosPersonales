@@ -33,10 +33,10 @@ class Persona {
   }
 }
 
-//Ejercicio 8
-//Crear la clase “Alumno” que extienda la clase “Persona” con los atributos 
+
+//Crea la clase “Alumno” que extiende a la clase “Persona” con los atributos 
 //estudios (qué estudia) y calificación media.
-//Agregar las funciones necesarias para leer y cambiar estos atributos.
+//Agrega las funciones necesarias para leer y cambiar estos atributos.
 
 class Alumno extends Persona {
   String estudios;
@@ -56,7 +56,7 @@ class Alumno extends Persona {
   }
   
   // funcion obtener la calificacion
-  String obtenerNota() {
+  Int obtenerNota() {
     return nota;
   }
   // funcion que devuelve los estudios
