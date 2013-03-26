@@ -1,0 +1,90 @@
+//crea Crear la clase “Persona” con los siguientes atributos: DNI,nombre y primer apellido.
+//Definir un constructor que permita dar un valor a estos atributos. 
+//Crear las funciones necesarias para leer y cambiar estos atributos.
+
+class Persona {
+  String DNI;
+  String nombre;
+  String primerApellido;
+  
+  // el constructor: inicializa el objeto Persona
+  Persona(String DNI, String nombre, String primerApellido) {
+    this.DNI = DNI;
+    this.nombre = nombre;
+    this.primerApellido = primerApellido;
+  }
+  
+  // funcion
+  void cambiarApellido(String nuevoApellido) {
+    primerApellido = nuevoApellido;
+  }
+  
+  // funcion obtenerDNI
+  String obtenerDNI() {
+    return DNI;
+  }
+  // funcion 
+  String  obtenerNombre() {
+    return nombre;
+  }
+  // funcion
+  String  obtenerApellido() {
+    return primerApellido;
+  }
+}
+
+//Ejercicio 8
+//Crear la clase “Alumno” que extienda la clase “Persona” con los atributos 
+//estudios (qué estudia) y calificación media.
+//Agregar las funciones necesarias para leer y cambiar estos atributos.
+
+class Alumno extends Persona {
+  String estudios;
+  int nota;
+  
+  // el constructor: inicializa el objeto Alumno y añade los atributos de Persona + los de Alumno
+  Alumno(String DNI, String nombre, String primerApellido, String estudios, int nota) {
+    //llama al constructor de la superclase padre, Persona
+    super(DNI,nombre, primerApellido);
+    this.estudios = estudios;
+    this.nota = nota;
+  }
+  
+  // funcion para cambiar la calificacion
+  void cambiarNota(int nuevaNota) {
+    nota = nuevaNota;
+  }
+  
+  // funcion obtener la calificacion
+  String obtenerNota() {
+    return nota;
+  }
+  // funcion que devuelve los estudios
+  String  obtenerEstudios() {
+    return estudios;
+  }
+}
+
+public class datosPersonales {
+
+  
+  //funcion main, crea los objetos 
+  public static void main(String[] args) {
+    Persona Pepe, Juan;
+    Pepe = new Persona("45454545P", "Pepe", "Martínez");
+    Juan = new Persona("85454547B", "Juan", "López");
+    
+    Alumno Roberto, Alicia;
+    Roberto = new Alumno("15454545P", "Roberto", "Castillo", "Fisica", 5);
+    Alicia = new Alumno("25454547B", "Alicia", "Sanchez", "Matematicas", 6);
+    
+    System.out.println("el DNI de Pepe es: " + Pepe.obtenerDNI());
+    System.out.println("el apellido de Pepe es: " + Pepe.obtenerApellido());
+    
+    Pepe.cambiarApellido("Barcenas");
+    System.out.println("Ahora el apellido de Pepe es: " + Pepe.obtenerApellido());
+    System.out.println("Alicia estudia: " + Alicia.obtenerEstudios()+ " su nota media es: "+ Alicia.obtenerNota());
+    Alicia.cambiarNota(9);
+    System.out.println("Alicia estudia: " + Alicia.obtenerEstudios()+ " su nota media es: "+ Alicia.obtenerNota());
+  }
+}
